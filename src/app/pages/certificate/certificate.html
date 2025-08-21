@@ -1,0 +1,124 @@
+<main class="w-[900px] mx-auto pt-10">
+  <div class="flex flex-row justify-between gap-2 text-center pb-4">
+    <a routerLink="/home" class="text-xs text-gray-500 cursor-pointer flex">
+      <i class="ph ph-arrow-left"></i>
+      Voltar
+    </a>
+    <button z-button zType="secondary" zSize="sm">
+      <i class="ph ph-download"></i>
+      Download
+    </button>
+  </div>
+
+  <div
+    class="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden"
+  >
+    <!-- Certificate Header -->
+    <div class="bg-gradient-to-r from-blue-900 to-blue-700 p-8 relative">
+      <!-- Decorative ribbon emblem -->
+      <div class="absolute top-4 left-4 w-16 h-16">
+        <img src="/certificate/Certificate_Ribbon.png" alt="Certificate" />
+      </div>
+
+      <!-- Geometric patterns -->
+      <div class="absolute top-0 right-0 w-32 h-32 opacity-20">
+        <div
+          class="w-16 h-16 border-2 border-blue-300 transform rotate-45"
+        ></div>
+      </div>
+      <div class="absolute bottom-0 left-0 w-24 h-24 opacity-20">
+        <div class="grid grid-cols-2 gap-1">
+          <div class="w-8 h-8 border border-blue-300"></div>
+          <div class="w-8 h-8 border border-blue-300"></div>
+          <div class="w-8 h-8 border border-blue-300"></div>
+          <div class="w-8 h-8 border border-blue-300"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate Content -->
+    <div class="p-12 text-center">
+      <!-- Title -->
+      <h1 class="text-4xl font-bold text-blue-900 mb-4 font-sans">
+        CERTIFICADO DE CONCLUSÃO
+      </h1>
+
+      <!-- Introductory text -->
+      <p class="text-lg text-blue-900 mb-6 font-sans">
+        Este certificado comprova que
+      </p>
+
+      <!-- Recipient name -->
+      <h2 class="text-5xl text-blue-600 mb-8 font-sans font-medium">
+        Ana Silva Lopes
+      </h2>
+
+      <!-- Separator with star -->
+      <div class="flex items-center justify-center mb-8">
+        <div class="flex-1 h-px bg-blue-300"></div>
+        <div
+          class="mx-4 w-4 h-4 bg-blue-400 rounded-full flex items-center justify-center"
+        >
+          <span class="text-white text-xs">★</span>
+        </div>
+        <div class="flex-1 h-px bg-blue-300"></div>
+      </div>
+
+      <!-- Activities introduction -->
+      <p class="text-lg text-blue-900 mb-6 font-sans">
+        Concluiu com sucesso as seguintes atividades:
+      </p>
+
+      <!-- Activities list -->
+      <div class="text-left max-w-2xl mx-auto space-y-3 mb-8">
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans">Introdução ao Angular</span>
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans"
+            >Configuração com Angular CLI</span
+          >
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans"
+            >Criação de componentes reutilizáveis</span
+          >
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans">Manipulação de dados</span>
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans"
+            >Implementação de data binding</span
+          >
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans"
+            >Criação de rotas com Angular Router</span
+          >
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+          <span class="text-blue-900 font-sans">Consumo de APIs REST</span>
+        </div>
+      </div>
+
+      <!-- Footer with date and signature -->
+      <div class="flex justify-between items-end mt-12">
+        <div class="text-left">
+          <p class="text-blue-900 font-sans">Emitido em 25/04/2025</p>
+        </div>
+        <div class="text-right">
+          <div class="w-32 h-16 border-b-2 border-blue-400"></div>
+          <p class="text-blue-900 text-sm mt-2 font-sans">Assinatura</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,37 @@
+<app-base-ui>
+  <div class="flex flex-col gap-2 text-center pb-4">
+    <h1 class="text-2xl font-bold text-[#121621]">Certificados Gerados</h1>
+    <p class="text-xs text-gray-500">
+      Visualize os seus certificados emitidos.
+    </p>
+  </div>
+  <div class="w-full grid gap-4">
+    <a [routerLink]="['/certificate', id]">
+      <app-item-certificate></app-item-certificate>
+    </a>
+    <a [routerLink]="['/certificate', id]">
+      <app-item-certificate></app-item-certificate>
+    </a>
+  </div>
+
+  <div
+    class="w-full text-center border shadow border-gray-100 rounded p-4 py-9 grid gap-5"
+  >
+    <div>
+      <i class="ph ph-certificate text-4xl text-gray-400"></i>
+    </div>
+    <div>
+      <h4 class="text-sm font-semibold text-[#121621]">
+        Nenhum certificado gerado
+      </h4>
+      <p class="text-xs text-gray-500">
+        Gere certificados para consultar o histórico
+      </p>
+    </div>
+    <div>
+      <button z-button zType="secondary" zSize="sm" class="bg-blue-950">
+        <span class="text-xs">Gerar certificado</span>
+      </button>
+    </div>
+  </div>
+</app-base-ui>

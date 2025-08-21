@@ -1,0 +1,60 @@
+/* Global Font Styles for All Components */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Ensure all components use Inter font */
+:host {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Component-specific font overrides */
+app-base-ui,
+app-navbar,
+app-item-certificate,
+app-button,
+app-card,
+app-input,
+app-home,
+app-certificate,
+app-certificate-form {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Force Inter font on all text elements within components */
+app-base-ui *,
+app-navbar *,
+app-item-certificate *,
+app-button *,
+app-card *,
+app-input *,
+app-home *,
+app-certificate *,
+app-certificate-form * {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Specific element overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+label,
+.z-button,
+[z-button],
+button[z-button],
+a[z-button] {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
