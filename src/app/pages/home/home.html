@@ -9,10 +9,12 @@
   @if(certificates.length > 0){
   <div class="w-full grid gap-4">
     @for (certificate of certificates; track $index) {
-    <app-item-certificate
-      [title]="certificate.name"
-      [id]="certificate.id"
-    ></app-item-certificate>
+    <a [routerLink]="['/certificate', certificate.id]">
+      <app-item-certificate
+        [title]="certificate.name"
+        [id]="certificate.id"
+      ></app-item-certificate>
+    </a>
     }
   </div>
   } @else if(certificates.length === 0){

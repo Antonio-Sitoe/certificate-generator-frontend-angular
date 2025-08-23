@@ -2,8 +2,8 @@ import { ICertificate } from '@/@types/certificate';
 import { BaseUi } from '@/components/base-ui/base-ui';
 import { ZardButtonComponent } from '@/components/button/button.component';
 import { ZardInputDirective } from '@/components/input/input';
-import { Component } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { CertificateService } from '../../services/certificate';
 import { nanoid } from 'nanoid';
 
@@ -13,6 +13,7 @@ import { nanoid } from 'nanoid';
   templateUrl: './certificate-form.html',
 })
 export class CertificateForm {
+  @ViewChild('form') form: NgForm | undefined;
   name: string = '';
   activity: string = '';
   activities: string[] = [];
@@ -41,6 +42,7 @@ export class CertificateForm {
     this.name = '';
     this.activity = '';
     this.activities = [];
+    this.form?.resetForm();
   }
   submit() {
     const certificate: ICertificate = {
