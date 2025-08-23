@@ -5,15 +5,17 @@
       Visualize os seus certificados emitidos.
     </p>
   </div>
-  <div class="w-full grid gap-4">
-    <a [routerLink]="['/certificate', id]">
-      <app-item-certificate></app-item-certificate>
-    </a>
-    <a [routerLink]="['/certificate', id]">
-      <app-item-certificate></app-item-certificate>
-    </a>
-  </div>
 
+  @if(certificates.length > 0){
+  <div class="w-full grid gap-4">
+    @for (certificate of certificates; track $index) {
+    <app-item-certificate
+      [title]="certificate.name"
+      [id]="certificate.id"
+    ></app-item-certificate>
+    }
+  </div>
+  } @else if(certificates.length === 0){
   <div
     class="w-full text-center border shadow border-gray-100 rounded p-4 py-9 grid gap-5"
   >
@@ -29,9 +31,16 @@
       </p>
     </div>
     <div>
-      <button z-button zType="secondary" zSize="sm" class="bg-blue-950">
+      <button
+        routerLink="/certificate/new"
+        z-button
+        zType="secondary"
+        zSize="sm"
+        class="bg-blue-950"
+      >
         <span class="text-xs">Gerar certificado</span>
       </button>
     </div>
   </div>
+  }
 </app-base-ui>

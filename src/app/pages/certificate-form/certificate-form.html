@@ -6,7 +6,11 @@
     </p>
   </div>
 
-  <form action="" class="flex flex-col gap-2 space-y-3 shadow rounded-lg p-8">
+  <form
+    novalidate
+    #form="ngForm"
+    class="flex flex-col gap-2 space-y-3 shadow rounded-lg p-8"
+  >
     <div>
       <h2 class="text-lg font-bold text-[#121621]">Novo Certificado</h2>
       <p class="text-xs text-gray-500">
@@ -17,7 +21,24 @@
       <label for="name" class="text-xs font-bold text-[#121621]">
         Nome completo
       </label>
-      <input z-input zSize="sm" placeholder="Digite o nome completo do aluno" />
+      <input
+        [(ngModel)]="name"
+        name="name"
+        #nomeRef="ngModel"
+        maxlength="150"
+        required
+        z-input
+        zSize="sm"
+        placeholder="Digite o nome completo do aluno"
+      />
+      @if(campoValido(nomeRef)){ @if(nomeRef.errors?.['required']){
+      <div>
+        <i class="ph ph-warning text-xs text-red-500"></i>
+        <span class="text-xs text-red-500">
+          O nome do aluno é obrigatório
+        </span>
+      </div>
+      } }
     </div>
     <div class="flex flex-col gap-2 w-full">
       <label for="activity" class="text-xs font-bold text-[#121621]"
@@ -26,11 +47,22 @@
       <div class="flex items-center gap-2 w-full">
         <input
           z-input
+          [(ngModel)]="activity"
+          name="activity"
+          #activityRef="ngModel"
+          (ngModelChange)="activity = $event"
+          maxlength="50"
+          required
           zSize="sm"
           class="flex-1"
           placeholder="Digite a actividade exercida"
         />
-        <button z-button zType="secondary" zSize="sm">
+        <button
+          z-button
+          zType="secondary"
+          zSize="sm"
+          (click)="adicionarAtividade()"
+        >
           <i class="ph ph-plus text-xs"></i>
           <span class="text-xs">Adicionar</span>
         </button>
@@ -42,40 +74,32 @@
         Lista de atividades
       </label>
       <ul class="flex flex-col gap-2 mt-2 border border-gray-100 rounded-lg">
+        @for (item of activities; track $index) {
         <li
           class="flex items-center gap-2 p-2 pl-4 border-b border-gray-100 justify-between"
         >
-          <span class="text-xs">Introdução ao Angular</span>
-          <button z-button zType="link" zSize="sm">
+          <span class="text-xs">{{ item }}</span>
+          <button
+            z-button
+            zType="link"
+            zSize="sm"
+            (click)="removerAtividade($index)"
+          >
             <i class="ph ph-trash text-xs text-red-500"></i>
           </button>
         </li>
-        <li
-          class="flex items-center gap-2 p-2 pl-4 border-b border-gray-100 justify-between"
-        >
-          <span class="text-xs">Configuração com Angular CLI</span>
-          <button z-button zType="link" zSize="sm">
-            <i class="ph ph-trash text-xs text-red-500"></i>
-          </button>
-        </li>
-        <li
-          class="flex items-center gap-2 p-2 pl-4 border-b border-gray-100 justify-between"
-        >
-          <span class="text-xs">Criação de componentes reutilizáveis</span>
-          <button z-button zType="link" zSize="sm">
-            <i class="ph ph-trash text-xs text-red-500"></i>
-          </button>
-        </li>
-        <li class="flex items-center gap-2 p-2 pl-4 justify-between">
-          <span class="text-xs">Manipulação de dados</span>
-          <button z-button zType="link" zSize="sm">
-            <i class="ph ph-trash text-xs text-red-500"></i>
-          </button>
-        </li>
+        }
       </ul>
     </div>
     <div class="w-full">
-      <button z-button zType="default" zSize="sm" class="w-full">
+      <button
+        z-button
+        zType="default"
+        zSize="sm"
+        class="w-full"
+        [disabled]="!formValido()"
+        (click)="submit()"
+      >
         <span class="text-xs">Gerar certificado</span>
       </button>
     </div>
