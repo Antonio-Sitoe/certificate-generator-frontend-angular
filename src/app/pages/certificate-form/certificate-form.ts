@@ -6,6 +6,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { CertificateService } from '../../services/certificate';
 import { nanoid } from 'nanoid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-certificate-form',
@@ -18,7 +19,10 @@ export class CertificateForm {
   activity: string = '';
   activities: string[] = [];
 
-  constructor(private certificateService: CertificateService) {}
+  constructor(
+    private certificateService: CertificateService,
+    private router: Router
+  ) {}
 
   campoValido(control: NgModel) {
     return control.invalid && control.touched;
@@ -52,6 +56,7 @@ export class CertificateForm {
       date: this.currentDate(),
     };
     this.certificateService.addCertificate(certificate);
+    this.router.navigate(['/certificate', certificate.id]);
     this.reset();
   }
 

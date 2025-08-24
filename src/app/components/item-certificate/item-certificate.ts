@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ZardButtonComponent } from '../button/button.component';
 import { Router } from '@angular/router';
 
@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './item-certificate.html',
 })
 export class ItemCertificate {
-  title: string | undefined;
-  id: string | undefined;
+  @Input() name: string | undefined;
+  @Input() date: string | undefined;
+  @Input() id: string | undefined;
   constructor(private router: Router) {}
 
   gotoCertificate() {
